@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>ePerpus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <section id="login-page" class="page active">
+    <div class="login-card">
+      <img src="logo-eperpus1.png" alt="Logo ePerpus1" class="logo-buku">
+      <h1>ePerpus Login</h1>
+      <input type="text" id="login-user" placeholder="Username" autofocus>
+      <input type="password" id="login-pass" placeholder="Password">
+      <select id="login-role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button onclick="login()">Login</button>
+      <button class="register-btn" onclick="showRegister()" type="button">Daftar User Baru</button>
+      <div id="login-msg"></div>
+    </div>
+  </section>
+  <!-- REGISTER POPUP -->
+  <div id="register-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-card">
+      <h2>Daftar User Baru</h2>
+      <input type="text" id="reg-user" placeholder="Username">
+      <input type="password" id="reg-pass" placeholder="Password">
+      <input type="text" id="reg-nama" placeholder="Nama Lengkap">
+      <input type="number" id="reg-hp" placeholder="Nomor HP">
+      <input type="email" id="reg-email" placeholder="Email">
+      <input type="text" id="reg-alamat" placeholder="Alamat">
+      <p>Pastikan semua field diisi dengan benar.</p>
+      <button onclick="registerUser()">Daftar</button>
+      <button onclick="hideRegister()">Tutup</button>
+      <div id="reg-msg"></div>
+    </div>
+  </div>
+  <!-- PINJAM BUKU POPUP -->
+  <div id="pinjam-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-card">
+      <h2>Form Pinjam Buku</h2>
+      <input type="text" id="p-nama" placeholder="Nama peminjam">
+      <input type="text" id="p-hp" placeholder="Nomor HP">
+      <input type="number" id="p-hari" placeholder="Berapa hari meminjam?">
+      <button class="" id="pinjam-btn">Pinjam</button>
+      <button class="danger" onclick="hidePinjam()">Batal</button>
+      <div id="pinjam-msg"></div>
+    </div>
+  </div>
+  <!-- SINOPSIS BUKU POPUP -->
+  <div id="sinopsis-popup" class="popup-overlay" style="display:none;">
+    <div class="popup-card">
+      <h2 id="sinopsis-judul"></h2>
+      <p id="sinopsis-isi"></p>
+      <button onclick="hideSinopsis()">Tutup</button>
+    </div>
+  </div>
+  <!-- DASHBOARD USER -->
+  <section id="user-dashboard" class="page">
+    <div class="nav">
+      <span id="user-greet"></span>
+      <button onclick="showBooks()">Katalog Buku</button>
+      <button onclick="showMyShelf()">Rak Saya</button>
+      <button onclick="logout()">Logout</button>
+    </div>
+    <div class="search-container">
+  <input type="text" id="search-input" placeholder="Cari buku..." oninput="filterBooks()" />
+</div>
+<div id="user-content"></div>
+  </section>
+  <!-- DASHBOARD ADMIN -->
+  <section id="admin-dashboard" class="page">
+    <div class="nav">
+      <span id="admin-greet"></span>
+      <button onclick="logout()">Logout</button>
+    </div>
+    <div id="admin-content"></div>
+  </section>
+  <footer>
+    <p align="center">ePerpus &copy; 2025</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
